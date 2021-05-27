@@ -1,39 +1,20 @@
-const https = require("https");
-
-// Endpoint for getting latest totals
-const endpointUrl = "https://covid-19-data.p.rapidapi.com/totals";
-
-// RapidAPI host
-const rapidApiHost = "covid-19-data.p.rapidapi.com";
-
-// YOUR RapidAPI key
-const rapidApiKey = "17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0";
+import axios from "axios";
 
 const options = {
+  method: 'GET',
+  url: 'https://covid-19-data.p.rapidapi.com/report/totals',
+  params: {date: '2020-07-21'},
   headers: {
-    "x-rapidapi-host": rapidApiHost,
-    "x-rapidapi-key": rapidApiKey,
-    useQueryString: true,
-  },
+    'x-rapidapi-key': '17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0',
+    'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
+  }
 };
 
-https
-  .get(endpointUrl, options, (res) => {
-    let body = [];
+axios.request(options).then(function (response) {
+	console.log(response.data);
+}).catch(function (error) {
+	console.error(error);
+});
 
-    res.on("data", (chunk) => {
-      body.push(chunk);
-    });
-
-    res.on("end", () => {
-      try {
-        let json = JSON.parse(body);
-        console.log(json);
-      } catch (error) {
-        console.error(error.message);
-      }
-    });
-  })
-  .on("error", (error) => {
-    console.error(error.message);
-  });
+// use express to build an api, and when send a get request for the graph data, make get requests...
+// .. to the covid and return an array of the data so that the frontend can take that array and use it to graph
