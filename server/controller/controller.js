@@ -32,9 +32,9 @@ const getYear = async (req, res) => {
             deaths: data[i].deaths,
             // might have to reformat the date
             date: {
-                year: date[0],
-                month: date[1],
-                day: date[2]
+                year: parseInt(date[0]),
+                month: parseInt(date[1]),
+                day: parseInt(date[2])
             }
         }
 
