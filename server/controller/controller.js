@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const getYear = (req, res) => {
+// get an array of the year-long data to graph in frontend
+const getYear = async (req, res) => {
     let data = [];
 
     const options = {
@@ -12,14 +13,35 @@ const getYear = (req, res) => {
     }
     };
 
-    axios.request(options).then(function (res) {
+    const api_call = await axios.request(options).then(function (res) {
     data = res.data;
 
     }).catch(function (error) {
     console.error(error);
     });
 
-    res.send("yearly");
+
+    let result = [];
+    console.log(data.length)
+
+    for (var i=0; i<data.length; i++) {
+        let date = data[i].date.split("-")
+
+        const info = {
+            cases: data[i].confirmed,
+            deaths: data[i].deaths,
+            // might have to reformat the date
+            date: {
+                year: date[0],
+                month: date[1],
+                day: date[2]
+            }
+        }
+
+        result.push(info);
+    }
+
+    res.send(result);
 }
 
 export default getYear;
