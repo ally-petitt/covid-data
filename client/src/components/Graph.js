@@ -10,13 +10,13 @@ function Graph() {
         text: "Basic Column Chart in React"
       },
       data: [{				
-                type: "column",
+                type: "area",
                 dataPoints: [
-                    { label: "Apple",  y: 10  },
-                    { label: "Orange", y: 15  },
-                    { label: "Banana", y: 25  },
-                    { label: "Mango",  y: 30  },
-                    { label: "Grape",  y: 28  }
+                    { x: 1,  y: 10  },
+                    { x: 2, y: 15  },
+                    { x: 3, y: 25  },
+                    { x: 4,  y: 30  },
+                    { x: 5,  y: 28  }
                 ]
        }]
     }
