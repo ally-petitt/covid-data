@@ -4,11 +4,16 @@ import router from "./routes/routes.js";
 
 const app = express();
 
-app.get("/", router);
+app.use("/graph", router);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// cors
 app.use(cors());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.listen(4000, () => {
   console.log("Express API running on port 4000")

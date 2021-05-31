@@ -4,6 +4,6 @@ import express from "express";
 
 const router = express.Router();
 
-router.get("/", getYear);
+router.get("/year", getYear);
 
 export default router;

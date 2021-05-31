@@ -1,4 +1,5 @@
 import axios from "axios";
+import request from "request";
 
 // get an array of the year-long data to graph in frontend
 const getYear = async (req, res) => {

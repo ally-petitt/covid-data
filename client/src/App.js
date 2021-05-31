@@ -1,5 +1,3 @@
-import "canvasjs/dist/canvasjs.js";
-
 import './App.css';
 
 import Graph from './components/Graph';
