@@ -6,7 +6,8 @@ import CanvasJSReact from "../lib/canvasjs/canvasjs.react";
 function Graph() {
     var CanvasJS = CanvasJSReact.CanvasJS;
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
-    const dataPoints = [];
+    const dataPoints_cases = [];
+    const dataPoints_deaths = [];
 
     let data = [];
 
@@ -20,9 +21,14 @@ function Graph() {
 
         for (var i = 0; i< data.length; i++) {
             // add items to array with required properties
-            dataPoints[i] ={
+            dataPoints_cases[i] ={
                  x: new Date(data[i].date.year,data[i].date.month, data[i].date.day ),
                  y: data[i].cases
+            }
+
+            dataPoints_deaths[i] = {
+                 x: new Date(data[i].date.year,data[i].date.month, data[i].date.day ),
+                 y: data[i].deaths
             }
         }
 
@@ -30,24 +36,32 @@ function Graph() {
 
     const options = {
       title: {
-        text: "Basic Column Chart in React"
+        text: "Number of COVID-19 Cases and Deaths"
+      },
+      axisY: {
+          title: "People"
+      },
+      axisX: {
+          title: "Date"
       },
       data: [{				
                 type: "area",
-                // for now, x=cases (will add second line)
-                dataPoints: dataPoints // ex: x: new Date(2020, 6, 7), y: 10
-       }]
+                legendText: "Cases",
+                showInLegend: true,
+                dataPoints: dataPoints_cases
+       },
+        {
+          type: "area",
+          legendText: "Deaths",
+          showInLegend: true,
+          dataPoints: dataPoints_deaths
+        }]
     }
 
     
        return (
         <div>
-            <h2>Graph</h2>
-            <div>
-                <CanvasJSChart options = {options}
-                    /* onRef = {ref => this.chart = ref} */
-                />
-            </div>
+            <CanvasJSChart options = {options} />
         </div>
     )
 }
