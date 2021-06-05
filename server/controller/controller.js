@@ -68,7 +68,7 @@ export const getCountry = async(req, res) => {
     });
 
     let output = {
-        country: req.params.country,
+        country: capitalizeFirstLetter(req.params.country),
         confirmed: response.confirmed,
         recovered: response.recovered,
         critical: response.critical,
@@ -76,4 +76,8 @@ export const getCountry = async(req, res) => {
     }
 
     res.send(output)
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }

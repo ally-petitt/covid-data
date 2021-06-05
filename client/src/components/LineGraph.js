@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react'
 import axios from "axios"
 import CanvasJSReact from "../lib/canvasjs/canvasjs.react";
-// import {CanvasJSChart} from 'canvasjs-react-charts
 
 function LineGraph() {
-    var CanvasJS = CanvasJSReact.CanvasJS;
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
     const dataPoints_cases = [];
     const dataPoints_deaths = [];
