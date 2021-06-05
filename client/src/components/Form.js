@@ -1,5 +1,6 @@
 import React from 'react'
 import { FormControl } from "react-bootstrap"
+import BarGraph from './BarGraph'
 
 
 function Form() {
@@ -8,8 +9,7 @@ function Form() {
             <h1>Real Time Data</h1>
             <form>
                 <FormControl type="text" placeholder="Enter a Country" />
-                <FormControl type="text" placeholder="Normal text" />
-
+                <BarGraph />
             </form>
         </div>
     )
