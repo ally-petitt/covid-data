@@ -6,7 +6,7 @@ import Graph from './components/LineGraph';
 function App() {
   return (
     <div className="App">
-      <Graph />
+      {/* <Graph /> */}
       <Form />
     </div>
   );

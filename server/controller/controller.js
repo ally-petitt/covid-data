@@ -62,7 +62,6 @@ export const getCountry = async(req, res) => {
 
     const api_call = await axios.request(options).then(function (res) {
         response = res.data[0]
-        console.log(response)
     }).catch(function (error) {
         console.error(error);
     });
