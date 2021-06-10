@@ -20,8 +20,7 @@ const BarGraph = () => {
 
         let data = {
             title: {
-                // text: `COVID-19 Statistics in ${response.country}`
-                text: "test"
+                text: `COVID-19 Statistics in ${response.country}`
             },
             data: [{	
                 type: "column",
@@ -29,6 +28,18 @@ const BarGraph = () => {
                     {
                         y: response.confirmed,
                         label: "Confirmed"
+                    },
+                    {
+                        y: response.recovered,
+                        label: "Recovered"
+                    },
+                    {
+                        y: response.critical,
+                        label: "Critical"
+                    },
+                    {
+                        y: response.deaths,
+                        label: "Deaths"
                     }
                 ]
             }]
@@ -39,7 +50,7 @@ const BarGraph = () => {
 
     return (
         <div>
-            {options == {} ? "nothing": <CanvasJSChart options={options} />}
+            {options == {} ? null: <CanvasJSChart options={options} />}
         </div>
     )
 }
