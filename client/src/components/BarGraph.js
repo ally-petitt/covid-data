@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react'
 import axios from "axios"
 import CanvasJSReact from "../lib/canvasjs/canvasjs.react";
 
-const BarGraph = () => {
+const BarGraph = ({ country }) => {
     const [options, setOptions] = useState({});
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
     let response;
 
     useEffect(async () => {
-        const result = await axios.get(`http://localhost:4000/graph/country/italy`)
+        const result = await axios.get(`http://localhost:4000/graph/country/${country}`)
             .then((res) => {
                 response = res.data;
                 console.log(res.data)

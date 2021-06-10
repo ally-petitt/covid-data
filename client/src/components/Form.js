@@ -1,16 +1,32 @@
-import React from 'react'
-import { FormControl } from "react-bootstrap"
+import React, { useState } from 'react'
 import BarGraph from './BarGraph'
 
+// TODO: add send a status of 404 when the input is invalid
 
 function Form() {
+    const [country, setCountry] = useState();
+    const [isSubmitted, setIsSubmitted] = useState(false);
+
+    const handleChange = (e) => {
+        setCountry(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsSubmitted(true);
+    }
+
     return (
         <div>
             <h1>Real Time Data</h1>
-            <form>
-                <FormControl type="text" placeholder="Enter a Country" />
-                <BarGraph />
+            <form onSubmit={handleSubmit}>
+                <input 
+                className="form-control"
+                type="text"
+                onChange={handleChange} />
+                <button type="submit" className="btn btn-dark">View Statistics</button>
             </form>
+            {isSubmitted ? <BarGraph country={country} /> : null}
         </div>
     )
 }

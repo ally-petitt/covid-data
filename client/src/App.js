@@ -1,6 +1,7 @@
 import './App.css';
-import Form from './components/Form';
+import "bootstrap/dist/css/bootstrap.min.css"
 
+import Form from './components/Form';
 import Graph from './components/LineGraph';
 
 function App() {
