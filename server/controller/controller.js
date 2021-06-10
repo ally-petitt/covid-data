@@ -6,20 +6,26 @@ const getYear = async (req, res) => {
     let data = [];
 
     const options = {
-    method: 'GET',
-    url: 'https://covid-19-data.p.rapidapi.com/report/totals',
-    headers: {
-        'x-rapidapi-key': '17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0',
-        'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
-    }
+        method: 'GET',
+        url: 'https://covid-19-data.p.rapidapi.com/report/totals',
+        headers: {
+            'x-rapidapi-key': '17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0',
+            'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
+        }
     };
 
     const api_call = await axios.request(options).then(function (res) {
-    data = res.data;
-
+        data = res.data;
     }).catch(function (error) {
-    console.error(error);
+        console.error(error);
+        res.status(404);
     });
+
+    // prevent error from occuring
+    if (data === undefined) {
+        res.status(404).send({ error: "Data not found" })
+        return;
+    }
 
 
     let result = [];
@@ -31,7 +37,6 @@ const getYear = async (req, res) => {
         const info = {
             cases: data[i].confirmed,
             deaths: data[i].deaths,
-            // might have to reformat the date
             date: {
                 year: parseInt(date[0]),
                 month: parseInt(date[1]),
@@ -42,7 +47,7 @@ const getYear = async (req, res) => {
         result.push(info);
     }
 
-    res.send(result);
+    res.status(201).send(result);
 }
 
 export default getYear;
@@ -66,6 +71,11 @@ export const getCountry = async(req, res) => {
         console.error(error);
     });
 
+    if (response === undefined) {
+        res.status(404).send({ error: "Country not found" })
+        return;
+    }
+
     let output = {
         country: capitalizeFirstLetter(req.params.country),
         confirmed: response.confirmed,
@@ -74,7 +84,7 @@ export const getCountry = async(req, res) => {
         deaths: response.deaths
     }
 
-    res.send(output)
+    res.status(201).send(output)
 }
 
 function capitalizeFirstLetter(string) {

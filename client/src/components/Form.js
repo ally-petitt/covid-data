@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import BarGraph from './BarGraph'
 
-// TODO: add send a status of 404 when the input is invalid
-
 function Form() {
     const [country, setCountry] = useState();
     const [isSubmitted, setIsSubmitted] = useState(false);

@@ -4,6 +4,7 @@ import CanvasJSReact from "../lib/canvasjs/canvasjs.react";
 
 const BarGraph = ({ country }) => {
     const [options, setOptions] = useState({});
+    const [wasError, setWasError] = useState(false);
     var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
     let response;
@@ -15,8 +16,12 @@ const BarGraph = ({ country }) => {
                 console.log(res.data)
             })
             .catch((err) => {
-                console.log(err);
+                setWasError(true)
             })
+        
+        if (wasError || response == undefined) {
+            return;
+        }
 
         let data = {
             title: {
@@ -50,7 +55,12 @@ const BarGraph = ({ country }) => {
 
     return (
         <div>
-            {options == {} ? null: <CanvasJSChart options={options} />}
+            {options == {} || wasError ? null: <CanvasJSChart options={options} />}
+            {wasError ? 
+            <p className="text-danger">
+                Data on this country was not found.
+            </p>
+            : null}
         </div>
     )
 }
