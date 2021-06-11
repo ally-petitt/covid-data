@@ -23,6 +23,7 @@ function App() {
   );
 }
 
+// TODO: make homepage
 // TODO: style
 
 export default App;
