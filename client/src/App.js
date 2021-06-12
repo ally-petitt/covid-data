@@ -23,7 +23,9 @@ function App() {
   );
 }
 
+// TODO: add "Total" page
 // TODO: make homepage
 // TODO: style
+// TODO: fix graph bug (where it only loads on screen resize)
 
 export default App;
