@@ -27,10 +27,10 @@ function Navbar() {
                 </li>
                 <li className="nav-item">
                     <Link 
-                    className={`nav-link text-info ${activeElem=="Total" ? "active text-light bg-info" : null}`} 
-                    to="/total"
+                    className={`nav-link text-info ${activeElem=="World Totals" ? "active text-light bg-info" : null}`} 
+                    to="/totals/world"
                     onClick={handleClick}
-                    >Total</Link>
+                    >World Totals</Link>
                 </li>
             </ul>
         </nav>

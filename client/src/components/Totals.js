@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react'
-import axios from "axios"
+import React, { useEffect, useState } from 'react'
+import axios from "axios";
 import CanvasJSReact from "../lib/canvasjs/canvasjs.react";
 
-const BarGraph = ({ country }) => {
+export default function Totals() {
+    var CanvasJSChart = CanvasJSReact.CanvasJSChart;
     const [options, setOptions] = useState({});
     const [wasError, setWasError] = useState(false);
-    var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-    useEffect(async () => {
-        let response; 
+    useEffect(async() => {
+        let response;
         
-        const result = await axios.get(`http://localhost:4000/graph/country/${country}`)
+        const result = await axios.get(`http://localhost:4000/graph/totals/world`)
             .then((res) => {
-                response = res.data;
+                response = res.data[0];
                 console.log(res.data)
             })
             .catch((err) => {
@@ -23,9 +23,16 @@ const BarGraph = ({ country }) => {
             return;
         }
 
+        console.log(response)
+        setData(response);
+
+    }, []);
+
+    const setData = (response) => {
+        console.log("setting data")
         let data = {
             title: {
-                text: `COVID-19 Statistics in ${response.country}`
+                text: `COVID-19 Statistics Worldwide`
             },
             data: [{	
                 type: "column",
@@ -50,19 +57,13 @@ const BarGraph = ({ country }) => {
             }]
         }
 
+        // assigned to another variable first to prevent infinite rendering loop
         setOptions(data);
-    }, []);
+    }
 
     return (
         <div>
             {options == {} || wasError ? null: <CanvasJSChart options={options} />}
-            {wasError ? 
-            <p className="text-danger">
-                Data on this country was not found.
-            </p>
-            : null}
         </div>
     )
 }
-
-export default BarGraph

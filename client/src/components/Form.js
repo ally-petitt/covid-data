@@ -12,14 +12,14 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         setIsSubmitted(true);
         setCountry(input);
     }
 
     return (
         <div>
-            <h1>Real Time Data</h1>
+            <h1>Real-Time Data</h1>
             <form onSubmit={handleSubmit} className="mb-5">
                 <input 
                 className="form-control"
