@@ -24,6 +24,7 @@ function Form() {
                 <input 
                 className="form-control"
                 type="text"
+                placeholder="Enter a country"
                 onChange={handleChange} />
                 <button type="submit" className="btn btn-dark">View Statistics</button>
             </form>

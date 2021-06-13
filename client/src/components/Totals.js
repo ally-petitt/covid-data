@@ -32,7 +32,7 @@ export default function Totals() {
         console.log("setting data")
         let data = {
             title: {
-                text: `COVID-19 Statistics Worldwide`
+                text: `Real-Time COVID-19 Statistics Worldwide`
             },
             data: [{	
                 type: "column",

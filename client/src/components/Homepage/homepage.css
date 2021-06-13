@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+    height: 500px;
+    width: 100vw;
+    max-width: 1331px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#triangle {
+    height: 500px;
+    width: 400px;
+    position: absolute;
+    bottom:0;
+    right: 0;
+    border-right: 700px solid #35a2b8;
+    border-top: 550px solid transparent;
+}
+
+.text {
+    z-index: 5;
+    margin-left: 60px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: rgb(177, 177, 177);
+}
+
+@media screen and (max-width: 712px) {
+    .hero {
+        justify-content: center;
+    }
+
+    .text {
+        margin: 0;
+    }
+}

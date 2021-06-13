@@ -7,12 +7,16 @@ import Form from './components/Form';
 import Graph from './components/LineGraph';
 import Navbar from "./components/Navbar/Navbar";
 import Totals from "./components/Totals";
+import Homepage from "./components/Homepage/Homepage"
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Navbar />
+        <Route path="/home">
+          <Homepage />
+        </Route>
         <Route path="/year">
           <Graph />
         </Route>
@@ -31,5 +35,6 @@ function App() {
 // TODO: style
 // TODO: fix graph bug (where it only loads on screen resize)
 // TODO: make more intuitive
+// TODO: make responsive
 
 export default App;

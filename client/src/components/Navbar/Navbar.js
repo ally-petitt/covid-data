@@ -10,30 +10,32 @@ function Navbar() {
     }
 
     return (
-        <nav className="p-4">
-            <ul className="nav nav-pills">
-                <li className="nav-item">
-                    <Link className={`nav-link text-info ${activeElem=="Year" ? "active text-light bg-info" : null}`} 
-                    aria-current="page" 
-                    to="/year"
-                    onClick={handleClick}
-                    >Year</Link>
-                </li>
-                  <li className="nav-item">
-                    <Link className={`nav-link text-info ${activeElem=="Country" ? "active text-light bg-info" : null}`} 
-                    to="/country"
-                    onClick={handleClick}
-                    >Country</Link>
-                </li>
-                <li className="nav-item">
-                    <Link 
-                    className={`nav-link text-info ${activeElem=="World Totals" ? "active text-light bg-info" : null}`} 
-                    to="/totals/world"
-                    onClick={handleClick}
-                    >World Totals</Link>
-                </li>
-            </ul>
-        </nav>
+        <div className="d-flex justify-content-center align-items-center">
+            <nav className="p-3">
+                <ul className="nav nav-pills">
+                    <li className="nav-item">
+                        <Link className={`nav-link text-info ${activeElem=="Year" ? "active text-light bg-info" : null}`}
+                        aria-current="page"
+                        to="/year"
+                        onClick={handleClick}
+                        >Year</Link>
+                    </li>
+                      <li className="nav-item">
+                        <Link className={`nav-link text-info ${activeElem=="Country" ? "active text-light bg-info" : null}`}
+                        to="/country"
+                        onClick={handleClick}
+                        >Country</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link
+                        className={`nav-link text-info ${activeElem=="World Totals" ? "active text-light bg-info" : null}`}
+                        to="/totals/world"
+                        onClick={handleClick}
+                        >World Totals</Link>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     )
 }
 
