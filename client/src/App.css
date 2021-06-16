@@ -1,10 +1,19 @@
 .App {
   text-align: center;
+  width: 100vw;
+  max-width: 1331px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+Totals {
+  justify-self: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
