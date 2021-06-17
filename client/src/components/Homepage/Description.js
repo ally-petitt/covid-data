@@ -4,12 +4,12 @@ import BarGraph from "../../images/BarGraph.svg"
 function Description() {
     return (
         <div className="d-flex w-100 flex-row-reverse justify-content-around" >
-            <div className="mr-3 w-40">
+            <div className="mx-3 w-40 d-flex flex-column">
                 <h2>Analyze</h2>
-                <ul>
-                    <li></li>
-                    <li>Find real-time data on the country of your choosing</li>
-                    <li>Get current statistics on </li>
+                <ul className="text-left my-auto">
+                    <li className="my-2 my-md-3">Visualize the initial impact of COVID-19</li>
+                    <li className="my-2 my-md-3">Find real-time data on the country of your choosing</li>
+                    <li className="my-2 my-md-3">Get current statistics on worldwide COVID-19 cases</li>
                 </ul>
             </div>
             <img src={BarGraph} alt="Bar graph" 
