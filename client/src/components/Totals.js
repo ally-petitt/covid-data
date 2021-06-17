@@ -62,7 +62,7 @@ export default function Totals() {
     }
 
     return (
-        <div>
+        <div className="w-100 p-5">
             {options == {} || wasError ? null: <CanvasJSChart options={options} />}
         </div>
     )
