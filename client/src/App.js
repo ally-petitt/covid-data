@@ -31,9 +31,7 @@ function App() {
   );
 }
 
-// TODO: make homepage
 // TODO: style
-// TODO: fix graph bug (where it only loads on screen resize)
 // TODO: make more intuitive
 // TODO: make responsive
 
