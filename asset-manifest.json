@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/covid-data/static/css/main.e410add8.chunk.css",
+    "main.js": "/covid-data/static/js/main.517b5ea7.chunk.js",
+    "main.js.map": "/covid-data/static/js/main.517b5ea7.chunk.js.map",
+    "runtime-main.js": "/covid-data/static/js/runtime-main.d2734621.js",
+    "runtime-main.js.map": "/covid-data/static/js/runtime-main.d2734621.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/covid-data/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.02ed6838.chunk.js": "/covid-data/static/js/2.02ed6838.chunk.js",
+    "static/js/2.02ed6838.chunk.js.map": "/covid-data/static/js/2.02ed6838.chunk.js.map",
+    "index.html": "/covid-data/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/covid-data/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.e410add8.chunk.css.map": "/covid-data/static/css/main.e410add8.chunk.css.map",
+    "static/js/2.02ed6838.chunk.js.LICENSE.txt": "/covid-data/static/js/2.02ed6838.chunk.js.LICENSE.txt",
+    "static/media/BarGraph.7a20d4a6.svg": "/covid-data/static/media/BarGraph.7a20d4a6.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d2734621.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.02ed6838.chunk.js",
+    "static/css/main.e410add8.chunk.css",
+    "static/js/main.517b5ea7.chunk.js"
+  ]
+}
