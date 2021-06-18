@@ -35,6 +35,6 @@ function App() {
   );
 }
 
-// TODO: make responsive
+// TODO: add a footer
 
 export default App;

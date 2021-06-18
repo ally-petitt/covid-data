@@ -3,8 +3,8 @@ import BarGraph from "../../images/BarGraph.svg"
 
 function Description() {
     return (
-        <div className="d-flex w-100 flex-row-reverse justify-content-around" >
-            <div className="mx-3 w-40 d-flex flex-column">
+        <div className="d-flex w-100 flex-column justify-content-center align-items-center flex-md-row-reverse justify-content-md-around p-5" >
+            <div className="mx-3 mb-3 w-40 d-flex flex-column">
                 <h2>Analyze</h2>
                 <ul className="text-left my-auto">
                     <li className="my-2 my-md-3">Visualize the initial impact of COVID-19</li>
