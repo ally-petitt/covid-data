@@ -35,9 +35,6 @@ function App() {
   );
 }
 
-// TODO: style
-// TODO: make more intuitive
 // TODO: make responsive
-// TODO: add buffers for api
 
 export default App;
