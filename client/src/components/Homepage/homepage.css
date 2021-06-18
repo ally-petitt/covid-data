@@ -34,6 +34,22 @@ h3 {
     color: rgb(177, 177, 177);
 }
 
+.social-icons > * {
+    cursor: pointer;
+    opacity: .7;
+    font-size:x-large;
+    transition: all .4s ease;
+}
+
+.social-icons > *:hover {
+    opacity: .45;
+}
+
+.privacy-policy:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 712px) {
     .hero {
         justify-content: center;

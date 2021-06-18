@@ -35,6 +35,6 @@ function App() {
   );
 }
 
-// TODO: add a footer
+// TODO: get rid of security vulnerabilities
 
 export default App;

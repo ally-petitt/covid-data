@@ -3,12 +3,14 @@ import "./homepage.css"
 
 import Hero from "./Hero";
 import Description from "./Description"
+import Footer from "./Footer";
 
 function Homepage() {
     return (
-        <div>
+        <div className="w-100">
             <Hero />
             <Description />
+            <Footer />
         </div>
     )
 }
