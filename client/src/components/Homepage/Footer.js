@@ -6,7 +6,7 @@ import { faTwitter, faInstagram, faLinkedin, faGithub } from "@fortawesome/free-
 
 function Footer() {
     return (
-        <section className="footer container m-0 min-vw-100 d-flex flex-column justify-content-center align-items-center p-5" 
+        <section className="footer container m-0 vw-100 d-flex flex-column justify-content-center align-items-center p-5" 
         style={{backgroundColor: "#333333"}}>
             <div className="social-icons row w-50">
                 <FontAwesomeIcon icon={faTwitter} className="text-light col-sm-3 col-6" />

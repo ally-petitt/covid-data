@@ -34,6 +34,10 @@ h3 {
     color: rgb(177, 177, 177);
 }
 
+.footer {
+    max-width: 1331px;
+}
+
 .social-icons > * {
     cursor: pointer;
     opacity: .7;

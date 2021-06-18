@@ -34,6 +34,4 @@ function App() {
   );
 }
 
-// TODO: get rid of security vulnerabilities
-
 export default App;
