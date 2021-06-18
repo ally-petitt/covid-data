@@ -13,7 +13,6 @@ export default function Totals() {
         const result = await axios.get(`http://localhost:4000/graph/totals/world`)
             .then((res) => {
                 response = res.data[0];
-                console.log(res.data)
             })
             .catch((err) => {
                 setWasError(true)
@@ -29,7 +28,6 @@ export default function Totals() {
     }, []);
 
     const setData = (response) => {
-        console.log("setting data")
         let data = {
             title: {
                 text: `Real-Time COVID-19 Statistics Worldwide`
