@@ -1,4 +1,5 @@
 import axios from "axios";
+import API_KEY from "../config.js";
 
 // get an array of the year-long data to graph in frontend
 const getYear = async (req, res) => {
@@ -8,7 +9,7 @@ const getYear = async (req, res) => {
         method: 'GET',
         url: 'https://covid-19-data.p.rapidapi.com/report/totals',
         headers: {
-            'x-rapidapi-key': '17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0',
+            'x-rapidapi-key': API_KEY,
             'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
         }
     };
@@ -46,6 +47,8 @@ const getYear = async (req, res) => {
         result.push(info);
     }
 
+    // apply cors manually since it didn't work when I applied middleware
+    res.set('Access-Control-Allow-Origin', '*')
     res.status(201).send(result);
 }
 
@@ -59,7 +62,7 @@ export const getCountry = async(req, res) => {
         url: 'https://covid-19-data.p.rapidapi.com/country',
         params: {name: req.params.country},
         headers: {
-            'x-rapidapi-key': '17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0',
+            'x-rapidapi-key': API_KEY,
             'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
         }
     };
@@ -83,6 +86,7 @@ export const getCountry = async(req, res) => {
         deaths: response.deaths
     }
 
+    res.set('Access-Control-Allow-Origin', '*')
     res.status(201).send(output)
 }
 
@@ -95,14 +99,15 @@ export const getTotals = async(req, res) => {
         method: 'GET',
         url: 'https://covid-19-data.p.rapidapi.com/totals',
         headers: {
-            'x-rapidapi-key': '17bbe504b2msh10ee83209707ca0p119ba0jsn9d10df9aa5b0',
+            'x-rapidapi-key': API_KEY,
             'x-rapidapi-host': 'covid-19-data.p.rapidapi.com'
         }
     };
 
     axios.request(options).then(function (response) {
+        res.set('Access-Control-Allow-Origin', '*')
         res.send(response.data);
     }).catch(function (error) {
-        console.error(error);
+        console.error(error); 
     });
 }
