@@ -2,7 +2,6 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import { Router } from "react-router";
 
 import Form from './components/Form';
 import Graph from './components/LineGraph';
