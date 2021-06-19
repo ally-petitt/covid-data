@@ -3,7 +3,8 @@ import BarGraph from './BarGraph'
 
 function Form() {
     const [input, setInput] = useState();
-    const [country, setCountry] = useState();
+    const [data, setData] = useState();
+    const [wasError, setWasError] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleChange = (e) => {
@@ -12,9 +13,45 @@ function Form() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        getData(input);
+    }
 
-        setIsSubmitted(true);
-        setCountry(input);
+    const getData = () => {
+            let response; 
+            
+            try {
+                // const result = await axios.get(`http://localhost:4000/graph/country/${country}`)
+                //     .then((res) => {
+                //         response = res.data;
+                //     })
+                //     .catch((err) => {
+                //         setWasError(true)
+                //     })
+
+            let options = [
+                    {
+                        "description": "AD",
+                        "confirmed": 149,
+                    },
+                    {
+                        "description": "AE",
+                        "deaths": 146,
+                    },
+                    {
+                        "description": "AF",
+                        "critical": 36,
+                    },
+                    {
+                        "description": "AG",
+                        "recovered": 44,
+                    },
+                ]
+
+                setData(options)
+                setIsSubmitted(true);
+            } catch (err) {
+                setWasError(true);
+            }
     }
 
     return (
@@ -29,7 +66,7 @@ function Form() {
                 onChange={handleChange} />
                 <button type="submit" className="btn btn-dark mt-4">View Statistics</button>
             </form>
-            {isSubmitted ? <BarGraph country={country} key={country} /> : null}
+            {isSubmitted ? <BarGraph data={data} wasError={wasError} key={data} /> : null}
         </div>
     )
 }
