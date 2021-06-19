@@ -1,49 +1,50 @@
+import axios from 'axios';
 import React, { useState } from 'react'
 import BarGraph from './BarGraph'
 
 function Form() {
-    const [input, setInput] = useState();
+    const [country, setCountry] = useState();
     const [data, setData] = useState();
     const [wasError, setWasError] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleChange = (e) => {
-        setInput(e.target.value)
+        setCountry(e.target.value)
     }
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        getData(input);
+        getData(country);
     }
 
-    const getData = () => {
+    const getData = async() => {
             let response; 
             
             try {
-                // const result = await axios.get(`http://localhost:4000/graph/country/${country}`)
-                //     .then((res) => {
-                //         response = res.data;
-                //     })
-                //     .catch((err) => {
-                //         setWasError(true)
-                //     })
+                const result = await axios.get(`http://localhost:4000/graph/country/${country}`)
+                    .then((res) => {
+                        response = res.data;
+                    })
+                    .catch((err) => {
+                        setWasError(true)
+                    })
 
             let options = [
                     {
-                        "description": "AD",
-                        "confirmed": 149,
+                        "description": "Confirmed",
+                        "confirmed": response.confirmed,
                     },
                     {
-                        "description": "AE",
-                        "deaths": 146,
+                        "description": "Deaths",
+                        "deaths": response.deaths,
                     },
                     {
-                        "description": "AF",
-                        "critical": 36,
+                        "description": "Critical",
+                        "critical": response.critical,
                     },
                     {
-                        "description": "AG",
-                        "recovered": 44,
+                        "description": "Recovered",
+                        "recovered": response.recovered,
                     },
                 ]
 
@@ -66,7 +67,7 @@ function Form() {
                 onChange={handleChange} />
                 <button type="submit" className="btn btn-dark mt-4">View Statistics</button>
             </form>
-            {isSubmitted ? <BarGraph data={data} wasError={wasError} key={data} /> : null}
+            {isSubmitted ? <BarGraph data={data} wasError={wasError} key={data} errorMessage="Could not find data on this country." /> : null}
         </div>
     )
 }
